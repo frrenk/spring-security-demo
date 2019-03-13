@@ -1,4 +1,4 @@
-package com.luv2code.springsecurity.demo.config;
+package pl.piaseckif.springsecurity.demo.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -9,7 +9,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages="com.luv2code.springsecurity.demo")
+@ComponentScan(basePackages="pl.piaseckif.springsecurity.demo")
 public class DemoAppConfig {
 
     //define bean for the ViewResolver

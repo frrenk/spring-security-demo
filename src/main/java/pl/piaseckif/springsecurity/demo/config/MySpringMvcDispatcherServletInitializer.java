@@ -1,4 +1,4 @@
-package com.luv2code.springsecurity.demo.config;
+package pl.piaseckif.springsecurity.demo.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 

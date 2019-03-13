@@ -1,4 +1,4 @@
-package com.luv2code.springsecurity.demo.config;
+package pl.piaseckif.springsecurity.demo.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -21,13 +21,23 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 		UserBuilder users = User.withDefaultPasswordEncoder();
 		
 		auth.inMemoryAuthentication().withUser(users.username("john").password("test123").roles("EMPLOYEE"));
-		auth.inMemoryAuthentication().withUser(users.username("mary").password("test456").roles("MANAGER"));
-		auth.inMemoryAuthentication().withUser(users.username("susan").password("test789").roles("ADMIN"));
+		auth.inMemoryAuthentication().withUser(users.username("mary").password("test456").roles("EMPLOYEE", "MANAGER"));
+		auth.inMemoryAuthentication().withUser(users.username("susan").password("test789").roles("EMPLOYEE", "ADMIN"));
 	}
 
 	@Override
-	protected void configure(HttpSecurity http)
-	
-	
+	protected void configure(HttpSecurity http) throws Exception {
 
+		http.authorizeRequests()
+				.anyRequest()
+				.authenticated()
+				.and()
+				.formLogin()
+				.loginPage("/showMyLoginPage")
+				.loginProcessingUrl("/authenticateTheUser")
+				.permitAll()
+				.and()
+				.logout()
+				.permitAll();
+	}
 }
