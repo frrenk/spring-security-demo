@@ -24,15 +24,19 @@ Role: <security:authentication property="principal.authorities"/>
 
 <hr>
 
+<security:authorize access="hasRole('MANAGER')">
 <p>
     <a href="${pageContext.request.contextPath}/managerPage">Leadership Meeting</a>
     (role restricted)
 </p>
+</security:authorize>
 
+<security:authorize access="hasRole('ADMIN')">
 <p>
     <a href="${pageContext.request.contextPath}/adminPage">System Settings</a>
     (role restricted)
 </p>
+</security:authorize>
 
 <!--add a logout button -->
 
