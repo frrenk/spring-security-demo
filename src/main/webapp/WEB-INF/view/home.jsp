@@ -29,6 +29,11 @@ Role: <security:authentication property="principal.authorities"/>
     (role restricted)
 </p>
 
+<p>
+    <a href="${pageContext.request.contextPath}/adminPage">System Settings</a>
+    (role restricted)
+</p>
+
 <!--add a logout button -->
 
 <form:form  action="${pageContext.request.contextPath}/logout" method="post">
